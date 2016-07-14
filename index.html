@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>City Hall Events</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,400italic|Source+Code+Pro:400' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../favicon.png">
+    <script type='text/javascript' src='../SheetseeExample/js/tabletop1.3.4.js'></script>
+    <script type='text/javascript' src='../SheetseeExample/js/sheetsee.js'></script>
+  </head>
+ 
+<body>
+  <div class="container">
+    <h1>City Hall Events</h1>
+    <div id="fullTable"></div>
+    
+</div>
+
+<script id="fullTable_template" type="text/html">
+  <table>
+    <tr><th class="tHeader">Month</th><th class="tHeader">Event</th><th class="tHeader">StartDate</th><th class="tHeader">EndDate</th><th class="tHeader">Frequency</th><th class="tHeader">Description</th><th class="tHeader">Coordinator</th><th class="tHeader">Status</th><th class="tHeader">Fee</th><th class="tHeader">Department</th></tr>
+      {{#rows}}
+        <tr><td>{{month}}</td><td>{{event}}</td><td>{{startdate}}</td><td>{{enddate}}</td>><td>{{frequency}}</td><td>{{description}}</td><td>{{coordinator}}</td><td>{{status}}</td><td>{{fee}}</td><td>{{department}}</td></tr>
+      {{/rows}}
+  </table>
+</script>
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var URL = "https://docs.google.com/spreadsheets/d/1SAeoBoigBfPErsTOv8QxyyEVz10V1IvgJhjRUAZWAiE/pubhtml"
+    Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true, debug: true} )
+  })
+
+  function showInfo(data) {
+    var tableOptions = {"data": data
+    , "pagination": 100, "tableDiv": "#fullTable", "filterDiv": "#fullTableFilter"}
+    Sheetsee.makeTable(tableOptions)
+    Sheetsee.initiateTableFilter(tableOptions)
+
+
+  }
+
+
+</script>
+
+</body>
+</html>
