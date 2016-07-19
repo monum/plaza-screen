@@ -1,0 +1,12 @@
+/* General */
+
+body {margin: 0px auto;}
+a {color: #333;}
+input:focus {outline: none;}
+
+/* Table */
+
+table {text-align: left; width: 100%}
+th {padding: 10px 0px;}
+td, text {padding: 3px 20px 3px 0px; font-size: 14px;}
+.noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
