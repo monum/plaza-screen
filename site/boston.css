@@ -15,8 +15,15 @@ h1 {
 	FONT-SIZE: 45px;
 	line-height: 47px;
 	letter-spacing: -1px; 
-	FONT-STYLE: normal; 
-	FONT-VARIANT: normal
+	}
+
+h3 {
+	color: white; 
+	background: black; 
+	FONT-FAMILY: georgia; 
+	FONT-SIZE: 30px;
+	line-height: 47px;
+	font-style: italic;
 	}
 
 /* Table */
@@ -31,8 +38,6 @@ th {padding: 10px 0px;
 	FONT-FAMILY: arial; 
 	FONT-SIZE: 30px;
 	letter-spacing: 1px; 
-	FONT-STYLE: normal; 
-	FONT-VARIANT: normal
 	}
 
 td, text {	padding: 3px 20px 3px 0px; 
@@ -41,8 +46,6 @@ td, text {	padding: 3px 20px 3px 0px;
 			FONT-FAMILY: arial; 
 			FONT-SIZE: 16px;
 			letter-spacing: 1px; 
-			FONT-STYLE: normal; 
-			FONT-VARIANT: normal
 		}
 
 .noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}

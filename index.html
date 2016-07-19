@@ -5,25 +5,27 @@
     <meta charset='utf-8'>
     <title>City Hall Events</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,400italic|Source+Code+Pro:400' rel='stylesheet' type='text/css'> -->
-   
+    <link rel='stylesheet' type='text/css' href='https://rawgit.com/monum/plaza-screen/gh-pages/site/boston.css'>
+
 <!-- Call out to jQuery, Tabletop.js & SheetSee.js -->
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/tabletop1.3.4.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/sheetsee.js'></script>
-    <link rel='stylesheet' type='text/css' href='https://rawgit.com/monum/plaza-screen/gh-pages/site/boston.css'>
   </head>
  
 <body>
   
-<!-- Create container for table -->
+<!-- Add headings & a container for the table -->
 
   <div class="container">
-    <h1>City Hall Events</h1>
+    <h1>City Hall Plaza</h1>
+    <h3>This Week's Events</h3>
     <div id="fullTable"></div>
     
   </div>
+
+<!-- Add a table template & column headings -->
 
 <script id="fullTable_template" type="text/html">
   <table>
@@ -45,7 +47,7 @@
 </script>
 
 <!-- Use SheetSee to generate the table -->
-<!-- Get the current month & then use it to filter the Google Sheet-->
+<!-- The word "Current" appears in the Google Sheet in every row whose event should be displayed this week -->
 
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
@@ -95,7 +97,7 @@
         <td>{{department}}</td>
 --> 
 
-<!-- used for filtering on 'this month's events'
+<!-- used for filtering on "this month's" events, rather than "this week's"
 
       var d = new Date();
       var monthlookup = new Array();
