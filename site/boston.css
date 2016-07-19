@@ -1,7 +1,7 @@
 /* General */
 
 body {	margin: 0px auto;
-		background: black;
+		background: #000000;
 	}
 
 a {	color: #333;}
@@ -9,8 +9,8 @@ a {	color: #333;}
 input:focus {outline: none;}
 
 h1 {
-	color: white; 
-	background: black; 
+	color: #fffff; 
+	background: #000000; 
 	FONT-FAMILY: Montserrat-Bold; 
 	FONT-SIZE: 45px;
 	line-height: 47px;
@@ -21,7 +21,20 @@ h1 {
 
 /* Table */
 
-table {text-align: left; width: 100%}
+table {	text-align: left; 
+		width: 100%
+	}
+
 th {padding: 10px 0px;}
-td, text {padding: 3px 20px 3px 0px; font-size: 14px;}
+
+td, text {	padding: 3px 20px 3px 0px; 
+			color: #fffff; 
+			background: #000000; 
+			FONT-FAMILY: Montserrat-Bold; 
+			FONT-SIZE: 16px;
+			letter-spacing: 1px; 
+			FONT-STYLE: normal; 
+			FONT-VARIANT: normal
+		}
+
 .noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
