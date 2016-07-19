@@ -28,7 +28,6 @@
 <script id="fullTable_template" type="text/html">
   <table>
     <tr>
-      <th class="tHeader">Month</th>
       <th class="tHeader">Event</th>
       <th class="tHeader">Start Date</th>
       <th class="tHeader">End Date</th>
@@ -36,7 +35,6 @@
     </tr>
       {{#rows}}
     <tr>
-      <td>{{month}}</td>
       <td>{{event}}</td>
       <td>{{startdate}}</td>
       <td>{{enddate}}</td>
@@ -99,12 +97,14 @@
 
 <!-- variables/columns removed for now: 
 
+        <th class="tHeader">Month</th>
         <th class="tHeader">Frequency</th>
         <th class="tHeader">Coordinator</th>
         <th class="tHeader">Status</th>
         <th class="tHeader">Fee</th>
         <th class="tHeader">Department</th>
 
+        <td>{{month}}</td>
         <td>{{frequency}}</td>
         <td>{{coordinator}}</td>
         <td>{{status}}</td>
