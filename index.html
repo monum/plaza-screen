@@ -61,24 +61,8 @@
 
   function showInfo(data) {
     
-    var d = new Date();
-    var monthlookup = new Array();
-      monthlookup[0] = "January";
-      monthlookup[1] = "February";
-      monthlookup[2] = "March";
-      monthlookup[3] = "April";
-      monthlookup[4] = "May";
-      monthlookup[5] = "June";
-      monthlookup[6] = "July";
-      monthlookup[7] = "August";
-      monthlookup[8] = "September";
-      monthlookup[9] = "October";
-      monthlookup[10] = "November";
-      monthlookup[11] = "December";
-    var currentmonth = monthlookup[d.getMonth()];
-
-    var currentevents = Sheetsee.getKeyword(data, currentmonth)
-    var tableOptions = {"data": currentevents, 
+    var current = Sheetsee.getKeyword(data, "Current")
+    var tableOptions = {"data": current, 
                         "pagination": 100, 
                         "tableDiv": "#fullTable", 
                         "filterDiv": "#fullTableFilter"
@@ -89,7 +73,6 @@
     Sheetsee.initiateTableFilter(tableOptions)
 
   }
-
 
 </script>
 </body>
@@ -110,4 +93,30 @@
         <td>{{status}}</td>
         <td>{{fee}}</td>
         <td>{{department}}</td>
+--> 
+
+<!-- used for filtering on 'this month's events'
+
+      var d = new Date();
+      var monthlookup = new Array();
+        monthlookup[0] = "January";
+        monthlookup[1] = "February";
+        monthlookup[2] = "March";
+        monthlookup[3] = "April";
+        monthlookup[4] = "May";
+        monthlookup[5] = "June";
+        monthlookup[6] = "July";
+        monthlookup[7] = "August";
+        monthlookup[8] = "September";
+        monthlookup[9] = "October";
+        monthlookup[10] = "November";
+        monthlookup[11] = "December";
+      var currentmonth = monthlookup[d.getMonth()];
+
+      var currentevents = Sheetsee.getKeyword(data, currentmonth)
+      var tableOptions = {"data": currentevents, 
+                        "pagination": 100, 
+                        "tableDiv": "#fullTable", 
+                        "filterDiv": "#fullTableFilter"
+                      }
 --> 
