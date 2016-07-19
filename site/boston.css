@@ -1,6 +1,7 @@
 /* General */
 
 body {	margin: 0px auto;
+		background: black;
 	}
 
 a {	color: #333;}
@@ -9,8 +10,8 @@ input:focus {outline: none;}
 
 h1 {
 	color: white; 
-	background: #000000; 
-	FONT-FAMILY: Montserrat-Bold; 
+	background: black; 
+	FONT-FAMILY: arial; 
 	FONT-SIZE: 45px;
 	line-height: 47px;
 	letter-spacing: -1px; 
@@ -24,12 +25,20 @@ table {	text-align: left;
 		width: 100%
 	}
 
-th {padding: 10px 0px;}
+th {padding: 10px 0px;
+	color: white; 
+	background: black; 
+	FONT-FAMILY: arial; 
+	FONT-SIZE: 30px;
+	letter-spacing: 1px; 
+	FONT-STYLE: normal; 
+	FONT-VARIANT: normal
+	}
 
 td, text {	padding: 3px 20px 3px 0px; 
 			color: white; 
-			background: #000000; 
-			FONT-FAMILY: Montserrat-Bold; 
+			background: black; 
+			FONT-FAMILY: arial; 
 			FONT-SIZE: 16px;
 			letter-spacing: 1px; 
 			FONT-STYLE: normal; 
