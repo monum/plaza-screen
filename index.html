@@ -45,14 +45,42 @@
       {{/rows}}
   </table>
 </script>
+
+<!-- Use SheetSee to generate the table -->
+<!-- Get the current month & then use it to filter the Google Sheet-->
+
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
+    
     var URL = "https://docs.google.com/spreadsheets/d/1SAeoBoigBfPErsTOv8QxyyEVz10V1IvgJhjRUAZWAiE/pubhtml"
-    Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true, debug: true} )
-  })
+    
+    Tabletop.init( {  key: URL, 
+                      callback: showInfo, 
+                      simpleSheet: true, 
+                      debug: true} )
+                    }
+                  )
 
   function showInfo(data) {
-    var tableOptions = {"data": data, 
+    
+    var d = new Date();
+    var monthlookup = new Array();
+      month[0] = "January";
+      month[1] = "February";
+      month[2] = "March";
+      month[3] = "April";
+      month[4] = "May";
+      month[5] = "June";
+      month[6] = "July";
+      month[7] = "August";
+      month[8] = "September";
+      month[9] = "October";
+      month[10] = "November";
+      month[11] = "December";
+    var currentmonth = monthlookup[d.getMonth()];
+
+    var currentevents = Sheetsee.getKeyword(data, currentmonth)
+    var tableOptions = {"data": currentevents, 
                         "pagination": 100, 
                         "tableDiv": "#fullTable", 
                         "filterDiv": "#fullTableFilter"
