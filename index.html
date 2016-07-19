@@ -31,12 +31,7 @@
       <th class="tHeader">Event</th>
       <th class="tHeader">StartDate</th>
       <th class="tHeader">EndDate</th>
-      <th class="tHeader">Frequency</th>
       <th class="tHeader">Description</th>
-      <th class="tHeader">Coordinator</th>
-      <th class="tHeader">Status</th>
-      <th class="tHeader">Fee</th>
-      <th class="tHeader">Department</th>
     </tr>
       {{#rows}}
     <tr>
@@ -44,12 +39,7 @@
       <td>{{event}}</td>
       <td>{{startdate}}</td>
       <td>{{enddate}}</td>
-      <td>{{frequency}}</td>
       <td>{{description}}</td>
-      <td>{{coordinator}}</td>
-      <td>{{status}}</td>
-      <td>{{fee}}</td>
-      <td>{{department}}</td>
     </tr>
       {{/rows}}
   </table>
@@ -77,3 +67,18 @@
 </script>
 </body>
 </html>
+
+<!-- variables/columns removed for now: 
+
+        <th class="tHeader">Frequency</th>
+        <th class="tHeader">Coordinator</th>
+        <th class="tHeader">Status</th>
+        <th class="tHeader">Fee</th>
+        <th class="tHeader">Department</th>
+
+        <td>{{frequency}}</td>
+        <td>{{coordinator}}</td>
+        <td>{{status}}</td>
+        <td>{{fee}}</td>
+        <td>{{department}}</td>
+--> 
