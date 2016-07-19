@@ -1,8 +1,23 @@
 /* General */
 
-body {margin: 0px auto;}
-a {color: #333;}
+body {	margin: 0px auto;
+		background: black;
+	}
+
+a {	color: #333;}
+
 input:focus {outline: none;}
+
+h1 {
+	color: white; 
+	background: black; 
+	FONT-FAMILY: Montserrat-Bold; 
+	FONT-SIZE: 45px;
+	line-height: 47px;
+	letter-spacing: -1px; 
+	FONT-STYLE: normal; 
+	FONT-VARIANT: normal
+	}
 
 /* Table */
 
