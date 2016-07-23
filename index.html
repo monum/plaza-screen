@@ -12,6 +12,7 @@
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/tabletop1.3.4.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/sheetsee.js'></script>
+    <script type='text/javascript' src='..//plaza-screen/js/plazautility.js'></script>
   </head>
  
 <body>
@@ -61,9 +62,8 @@
                   )
 
   function showInfo(data) {
-    
-    var current = Sheetsee.getKeyword(data, "Current")
-    var tableOptions = {"data": current, 
+      showCurrentWeek(data)
+    var tableOptions = {"data": data, 
                         "pagination": 100, 
                         "tableDiv": "#fullTable", 
                         "filterDiv": "#fullTableFilter"
