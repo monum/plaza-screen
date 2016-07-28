@@ -14,6 +14,13 @@
 
         body {  margin: 0px auto;
                 background: black;
+                width: 1440px;
+                height: 2560px;
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
               }
 
         h1 {  color: white; 
@@ -51,10 +58,13 @@
                       font-style: italic; 
                       visibility: hidden;
                     }
+
+      /* Container */
+
     
     </style>
 
-    <!-- Call out to jQuery, Tabletop.js & SheetSee.js -->
+    <!-- Call out to jQuery, Tabletop.js, SheetSee.js, & PlazaUtility.js -->
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/tabletop1.3.4.js'></script>
@@ -69,7 +79,6 @@
   <div class="container">
     <h1>This Week at City Hall Plaza</h1>
     <div id="fullTable"></div>
-    
   </div>
 
 <!-- Add a table template & column headings -->
