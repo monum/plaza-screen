@@ -14,14 +14,16 @@
 
         body {  margin: 0px auto;
                 background: black;
-                width: 2560px;
-                height: 1440px;
-                -webkit-transform: rotate(90deg);
-                -moz-transform: rotate(90deg);
-                -o-transform: rotate(90deg);
-                -ms-transform: rotate(90deg);
-                transform: rotate(90deg);
               }
+
+        #container {  width: 2560px;
+                      height: 1440px;
+                      -webkit-transform: rotate(90deg);
+                      -moz-transform: rotate(90deg);
+                      -o-transform: rotate(90deg);
+                      -ms-transform: rotate(90deg);
+                      transform: rotate(90deg);
+        }
 
         h1 {  color: white; 
               background: black; 
@@ -73,7 +75,7 @@
   
 <!-- Add headings & a container for the table -->
 
-  <div class="container" align="left">
+  <div class="container" id="container">
     <h1>This Week at City Hall Plaza</h1>
     <div id="fullTable"></div>
   </div>
