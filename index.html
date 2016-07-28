@@ -5,9 +5,37 @@
     <meta charset='utf-8'>
     <title>City Hall Events</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-    <link rel='stylesheet' type='text/css' href='https://rawgit.com/monum/plaza-screen/gh-pages/site/boston.css'>
 
-<!-- Call out to jQuery, Tabletop.js & SheetSee.js -->
+    <!-- Internal styling because e-ink screen ignores external CSS -->
+
+    <style>
+
+      /* General */  
+
+        body {  margin: 0px auto;
+                background: black;
+              }
+
+        h1 {  color: white; 
+              background: black; 
+              FONT-FAMILY: Montserrat-Bold; 
+              FONT-SIZE: 45px;
+              line-height: 47px;
+              letter-spacing: -1px; 
+              FONT-STYLE: normal; 
+              FONT-VARIANT: normal
+            }
+
+      /* Table */
+
+        table {text-align: left; width: 100%}
+        th {padding: 10px 0px;}
+        td, text {padding: 3px 20px 3px 0px; font-size: 14px;}
+        .noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
+    
+    </style>
+
+    <!-- Call out to jQuery, Tabletop.js & SheetSee.js -->
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/tabletop1.3.4.js'></script>
