@@ -1,70 +1,89 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
     <title>City Hall Events</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <!--<meta name='viewport' content='width=device-width, initial-scale=1.0'/>-->
 
     <!-- Internal styling because e-ink screen ignores external CSS -->
 
     <style>
+    body {
+      padding:0;
+      margin:0;
+      /*margin: 0px auto;*/
+      /*padding: 50px;*/
+      background: black;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      /*width: 2560px;
+      height: 1440px;*/
+      /*
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      transform-origin:top center;
+      */
+    }
 
-      /* General */  
+    #fullTable{
+      display: inline-block;
+      width:1250px;
+      /*height:1000px;*/
+      border: 1px solid #333;
+      position:absolute;
+      margin-left:-625px; /* half of width */
+      margin-top:-625px;  /* half of height */
+      top:50%;
+      left:50%;
 
-        body {  margin: 0px auto;
-                background: black;
-                width: 2560px;
-                height: 1440px;
-                -webkit-transform: rotate(90deg);
-                -moz-transform: rotate(90deg);
-                -o-transform: rotate(90deg);
-                -ms-transform: rotate(90deg);
-                transform: rotate(90deg);
-              }
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+      transform-origin:37% 100%;
+    }
 
-        #container {  width: 2560px;
-                      height: 1440px;
-                      vertical-align: left 
-                      horizontal-align: top;
-        }
+    /* Table */
+    table {
+      text-align: center;
+      /*
+      display: table-cell;
+      vertical-align: middle;*/
+    }
 
-        h1 {  color: white; 
-              background: black; 
-              FONT-FAMILY: 'Montserrat', Arial, sans-serif; 
-              FONT-SIZE: 75px;
-              line-height: 67px;
-              letter-spacing: -1px; 
-              FONT-STYLE: normal; 
-              FONT-VARIANT: normal
-            }
+    caption {
+      color: white;
+      padding: 20px;
+      FONT-SIZE: 4em;
+    }
 
-      /* Table */
+    tr:nth-child(even) { background: #000; }
+    tr:nth-child(odd) { background: #333; }
 
-        table { text-align: left; 
-                width: 100%
-              }
-        th, text {  color: white;
-                    FONT-FAMILY: 'Montserrat', Arial, sans-serif;
-                    FONT-SIZE: 45px;
-                    line-height: 47px;
-                    letter-spacing: -1px;
-                    padding: 10px 0px;
-                  }
-        td, text {  color: white;
-                    FONT-FAMILY: 'Montserrat', Arial, sans-serif;
-                    FONT-SIZE: 30px;
-                    line-height: 35px;
-                    letter-spacing: 1px;
-                    padding: 3px 20px 3px 0px; 
-                    font-size: 14px;
-                  }
-        .noMatches {  margin-left: 20px; 
-                      font-size: 11px; 
-                      font-style: italic; 
-                      visibility: hidden;
-                    }
-    
+    th, text {
+      color: white;
+      text-align: middle;
+      padding: 10px;
+      font-size: 1.6em;
+      letter-spacing: 1px;
+    }
+    td, text {
+      color: white;
+      text-align: middle;
+      padding: 10px;
+      font-size: 1.5em;
+    }
+    /*
+    .noMatches {
+      margin-left: 20px;
+      font-size: 11px;
+      font-style: italic;
+      visibility: hidden;
+    }
+    */
     </style>
 
     <!-- Call out to jQuery, Tabletop.js, SheetSee.js, & PlazaUtility.js -->
@@ -73,21 +92,20 @@
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/tabletop1.3.4.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/sheetsee.js'></script>
     <script type='text/javascript' src='https://cdn.rawgit.com/monum/plaza-screen/gh-pages/js/plazautility.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js'></script>
   </head>
- 
+
 <body>
-  
+
 <!-- Add headings & a container for the table -->
 
-  <div class="container" id="container">
-    <h1>This Week at City Hall Plaza</h1>
-    <div id="fullTable"></div>
-  </div>
+<div id="fullTable"></div>
 
 <!-- Add a table template & column headings -->
 
 <script id="fullTable_template" type="text/html">
   <table>
+    <caption>This Week at City Hall</caption>
     <tr>
       <th class="tHeader">Event</th>
       <th class="tHeader">Start Date</th>
@@ -105,39 +123,81 @@
   </table>
 </script>
 
-<!-- Use SheetSee to generate the table -->
-
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
-    
     var URL = "https://docs.google.com/spreadsheets/d/1NbQZH26SMNqOMWlMF4mh2nsayeK9IiOEZF6P5rD6RFU/pubhtml"
-    
-    Tabletop.init( {  key: URL, 
-                      callback: showInfo, 
-                      simpleSheet: true, 
-                      debug: true} )
-                    }
-                  )
 
-  function showInfo(data) {
-      showCurrentWeek(data)
-    var tableOptions = {"data": data, 
-                        "pagination": 100, 
-                        "tableDiv": "#fullTable", 
-                        "filterDiv": "#fullTableFilter"
-                      }
-    
-    Sheetsee.makeTable(tableOptions)
-    
-    Sheetsee.initiateTableFilter(tableOptions)
+    Tabletop.init(
+      { key: URL,
+        callback: showInfo,
+        simpleSheet: true,
+        debug: true
+      });
+  });
 
+  function showCurrentWeek(data){
+    for (var i = data.length - 1; i >= 0; i--) {
+    	if (data[i].startdate.length > 1){
+    		if (inCurrentWeek(data[i].startdate) == 1) {
+    			data.splice(i, 1); }
+    			else  {
+            continue;
+          }
+    	}
+
+      else
+        {
+          data.splice(i,1);}
+      }
+
+    return data;
   }
 
+  function inCurrentWeek(event) {
+    var returnVal;
+
+    var curr = new Date; // get current date
+    var firstDay = (curr.getDate() - curr.getDay());
+    var firstDate = new Date(curr.setDate(firstDay));
+
+    var lastDate = new Date(curr.setDate(firstDate.getDate()+6));
+    var eventdate = new Date(event);
+    if (eventdate >= firstDate && eventdate <= lastDate) {
+       //current week
+       returnVal = 0;}
+       else
+       {
+    	returnVal = 1;}
+    return returnVal;
+  }
+
+  function showInfo(event_data) {
+
+    var current_week_data = showCurrentWeek(event_data);
+
+    for (i in current_week_data) {
+      current_week_data[i]['startdate'] = moment(current_week_data[i]['startdate']).format("dddd, MMM Do");
+      current_week_data[i]['enddate'] = moment(current_week_data[i]['enddate']).format("dddd, MMM Do");
+    }
+
+    console.log(current_week_data);
+
+    var tableOptions = {"data": current_week_data,
+                        "pagination": 100,
+                        "tableDiv": "#fullTable",
+                        "filterDiv": "#fullTableFilter"
+                      }
+
+    Sheetsee.makeTable(tableOptions);
+
+    Sheetsee.initiateTableFilter(tableOptions);
+
+  }
 </script>
 </body>
 </html>
 
-<!-- variables/columns removed for now: 
+<!-- variables/columns removed for now:
 
         <th class="tHeader">Month</th>
         <th class="tHeader">Frequency</th>
@@ -152,7 +212,7 @@
         <td>{{status}}</td>
         <td>{{fee}}</td>
         <td>{{department}}</td>
---> 
+-->
 
 <!-- used for filtering on "this month's" events, rather than "this week's"
 
@@ -173,9 +233,9 @@
       var currentmonth = monthlookup[d.getMonth()];
 
       var currentevents = Sheetsee.getKeyword(data, currentmonth)
-      var tableOptions = {"data": currentevents, 
-                        "pagination": 100, 
-                        "tableDiv": "#fullTable", 
+      var tableOptions = {"data": currentevents,
+                        "pagination": 100,
+                        "tableDiv": "#fullTable",
                         "filterDiv": "#fullTableFilter"
                       }
---> 
+-->
